@@ -8,7 +8,7 @@ interface LoggerOptions {
     AFTER = "AFTER",
   }
   
-  class TestLogger {
+  class VarChecker {
   
     private options: LoggerOptions
   
@@ -46,7 +46,7 @@ interface LoggerOptions {
       this.log(message, LogLevel.AFTER, hasTimestamp)
     }
   
-    static create(options?: Partial<LoggerOptions>): TestLogger{
+    static create(options?: Partial<LoggerOptions>): VarChecker{
       const defaultConfig: LoggerOptions = {
         output: 'console',
         format: '{timestamp} [{level}]',
@@ -54,8 +54,8 @@ interface LoggerOptions {
   
       const mergeConfig = { ...defaultConfig, ...options };
   
-      return new TestLogger(mergeConfig);
+      return new VarChecker(mergeConfig);
     }
   }
   
-  export default TestLogger; 
+  export default VarChecker; 
