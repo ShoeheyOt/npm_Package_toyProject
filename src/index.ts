@@ -59,15 +59,3 @@ interface LoggerOptions {
   }
   
   export default TestLogger; 
-
-const myTest = TestLogger.create();
-let num = 4 * 5;
-myTest.before({num});
-num = 5* 8;
-myTest.after({num});
-function stringTest (person:string):string  {
-  return `Hello, ${person}`
-}
-
-const smith = stringTest("Smith")
-myTest.before({smith},true);
