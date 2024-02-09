@@ -1,5 +1,5 @@
 {
-  "name": "variable-checker",
+  "name": "@shu/variable-checker",
   "version": "0.0.1",
   "description": "This is simple test logger which you can use it just like console.log() for checking your variables.",
   "main": "./dist/index.js",

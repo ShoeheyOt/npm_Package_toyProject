@@ -1,3 +1,3 @@
-This is a Toy project, which is task from school
+This is a Toy project from school
 
 
