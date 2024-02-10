@@ -16,7 +16,7 @@ var __spreadValues = (a, b) => {
 };
 
 // src/index.ts
-var TestLogger = class _TestLogger {
+var VarChecker = class _VarChecker {
   constructor(options) {
     this.options = options;
   }
@@ -32,7 +32,7 @@ var TestLogger = class _TestLogger {
     }
   }
   log(message, level, enableTimestamp) {
-    const timestamp = enableTimestamp ? (/* @__PURE__ */ new Date()).toISOString() : "";
+    const timestamp = enableTimestamp ? (/* @__PURE__ */ new Date()).toString() : "";
     const logMessage = this.options.format.replace("{timestamp}", timestamp).replace("{level}", level);
     this.formatLog(this.options, logMessage, message);
   }
@@ -42,19 +42,16 @@ var TestLogger = class _TestLogger {
   after(message, hasTimestamp = false) {
     this.log(message, "AFTER" /* AFTER */, hasTimestamp);
   }
-  error(message, hasTimestamp = false) {
-    this.log(message, "ERROR" /* ERROR */, hasTimestamp);
-  }
   static create(options) {
     const defaultConfig = {
       output: "console",
       format: "{timestamp} [{level}]"
     };
     const mergeConfig = __spreadValues(__spreadValues({}, defaultConfig), options);
-    return new _TestLogger(mergeConfig);
+    return new _VarChecker(mergeConfig);
   }
 };
-var src_default = TestLogger;
+var src_default = VarChecker;
 export {
   src_default as default
 };

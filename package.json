@@ -1,7 +1,7 @@
 {
   "name": "@shuota/variable-checker",
   "version": "0.0.1",
-  "description": "This is simple test logger which you can use it just like console.log() for checking your variables.",
+  "description": "This is a Toy project from school",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

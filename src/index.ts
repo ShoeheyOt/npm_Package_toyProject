@@ -59,3 +59,9 @@ interface LoggerOptions {
   }
   
   export default VarChecker; 
+
+const myLogger = VarChecker.create();
+let num = 4 * 5
+myLogger.before({num}, true)
+num = 6 * 8
+myLogger.after({num}, true)
