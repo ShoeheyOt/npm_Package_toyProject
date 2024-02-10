@@ -30,7 +30,7 @@ interface LoggerOptions {
     }
   
     private log<T>(message: T, level: LogLevel, enableTimestamp: boolean) {
-      const timestamp = enableTimestamp ? new Date().toISOString() : '';
+      const timestamp = enableTimestamp ? new Date().toString() : '';
       const logMessage = this.options.format
         .replace('{timestamp}', timestamp)
         .replace('{level}', level)
