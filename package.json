@@ -15,7 +15,13 @@
     "type": "git",
     "url":"git+https://github.com/ShoeheyOt/npm_Package_toyProject.git"
   },
-  "keywords": [],
+  "keywords": [
+    "console",
+    "console.log",
+    "test",
+    "logger",
+    "logging"
+  ],
   "author": "ShoeheyOt",
   "license": "ISC",
   "bugs": {
