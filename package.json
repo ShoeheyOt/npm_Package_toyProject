@@ -1,6 +1,6 @@
 {
   "name": "@shuota/variable-checker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This is a Toy project from school",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -11,9 +11,17 @@
   "scripts": {
     "build": "tsup"
   },
+  "repository": {
+    "type": "git",
+    "url":"git+https://github.com/ShoeheyOt/npm_Package_toyProject.git"
+  },
   "keywords": [],
   "author": "ShoeheyOt",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShoeheyOt/npm_Package_toyProject/issues"
+  },
+  "homepage": "https://github.com/ShoeheyOt/npm_Package_toyProject",
   "devDependencies": {
     "ts-node": "^10.9.2",
     "tsup": "^8.0.1",
