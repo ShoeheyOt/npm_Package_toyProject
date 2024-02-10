@@ -1,6 +1,6 @@
 {
   "name": "@shuota/variable-checker",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This is a Toy project from school",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
