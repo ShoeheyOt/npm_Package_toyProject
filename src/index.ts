@@ -29,7 +29,7 @@ interface LoggerOptions {
       }
     }
   
-    private log<T>(message: object, level: LogLevel, type:boolean ,enableTimestamp: boolean) {
+    private log(message: object, level: LogLevel, type:boolean ,enableTimestamp: boolean) {
       const timestamp = enableTimestamp ? new Date().toString() : '';
       const paramType = () => {
         if(!type) return '';
