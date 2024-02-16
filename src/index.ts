@@ -29,31 +29,27 @@ interface LoggerOptions {
       }
     }
   
-    private log<T>(message: object, level: LogLevel, enableTimestamp: boolean,type:boolean) {
+    private log<T>(message: object, level: LogLevel, type:boolean ,enableTimestamp: boolean) {
       const timestamp = enableTimestamp ? new Date().toString() : '';
       const paramType = () => {
         if(!type) return '';
         const val = Object.values(message)[0]
         return typeof val
-
       } 
-      
-      
 
       const logMessage = this.options.format
         .replace('{timestamp}', timestamp)
         .replace('{level}', level)
         .replace('[{type}]', paramType)
-        
-  
+
       this.formatLog(this.options, logMessage, message,);
     }
   
-    before(message: object, hasTimestamp: boolean = false, type: boolean = false) {
-      this.log(message, LogLevel.BEFORE, hasTimestamp, type)
+    before(message: object, type: boolean = false, hasTimestamp: boolean = false) {
+      this.log(message, LogLevel.BEFORE, type, hasTimestamp)
     }
-    after(message: object, hasTimestamp: boolean = false, type:boolean = false) {
-      this.log(message, LogLevel.AFTER, hasTimestamp, type)
+    after(message: object, type:boolean = false, hasTimestamp: boolean = false) {
+      this.log(message, LogLevel.AFTER, type, hasTimestamp)
     }
   
     static create(options?: Partial<LoggerOptions>): VarChecker{
@@ -68,9 +64,4 @@ interface LoggerOptions {
     }
   }
   
-export default VarChecker; 
-
-const test = VarChecker.create();
-
-let num:number = 3 * 5;
-test.before({num},false,true);
+export default VarChecker;
