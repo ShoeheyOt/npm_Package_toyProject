@@ -29,27 +29,37 @@ interface LoggerOptions {
       }
     }
   
-    private log<T>(message: T, level: LogLevel, enableTimestamp: boolean) {
+    private log<T>(message: object, level: LogLevel, enableTimestamp: boolean,type:boolean) {
       const timestamp = enableTimestamp ? new Date().toString() : '';
+      const paramType = () => {
+        if(!type) return '';
+        const val = Object.values(message)[0]
+        return typeof val
+
+      } 
+      
+      
+
       const logMessage = this.options.format
         .replace('{timestamp}', timestamp)
         .replace('{level}', level)
+        .replace('[{type}]', paramType)
         
   
-      this.formatLog(this.options, logMessage, message);
+      this.formatLog(this.options, logMessage, message,);
     }
   
-    before<T>(message: T, hasTimestamp: boolean = false) {
-      this.log(message, LogLevel.BEFORE, hasTimestamp)
+    before(message: object, hasTimestamp: boolean = false, type: boolean = false) {
+      this.log(message, LogLevel.BEFORE, hasTimestamp, type)
     }
-    after<T>(message: T, hasTimestamp: boolean = false) {
-      this.log(message, LogLevel.AFTER, hasTimestamp)
+    after(message: object, hasTimestamp: boolean = false, type:boolean = false) {
+      this.log(message, LogLevel.AFTER, hasTimestamp, type)
     }
   
     static create(options?: Partial<LoggerOptions>): VarChecker{
       const defaultConfig: LoggerOptions = {
         output: 'console',
-        format: '{timestamp} [{level}]',
+        format: '{timestamp} [{level}] [{type}]',
       }
   
       const mergeConfig = { ...defaultConfig, ...options };
@@ -58,4 +68,9 @@ interface LoggerOptions {
     }
   }
   
-  export default VarChecker; 
+export default VarChecker; 
+
+const test = VarChecker.create();
+
+let num:number = 3 * 5;
+test.before({num},false,true);
