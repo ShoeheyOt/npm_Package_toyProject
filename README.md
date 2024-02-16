@@ -1,13 +1,13 @@
 # Variable Checker
 
-### This is simple test logger which you can use it just like console.log() for checking your variables.
+### This is a simple test logger which you can use just like console.log() for checking your variables.
 
 ### 1. Install the package
 ```bash
 npm i @shuota/variable-checker
 ```
 
-### 2. Import to your file. and instantiation
+### 2. Import to your file. and instantiate it
 ```ts
 import VarChecker from "@shuota/variable-checker";
 const myLogger = VarChecker.create();
@@ -43,7 +43,7 @@ with `.after({})`, you will get `[AFTER]` label in the console.
 same as above, please include `{}` inside `()`
 
 ### 5. with function 
-Yes, you can use this package with function, but make sure you need to store your function to variable.
+Yes, you can use this package with function, but make sure you need to store your function to a variable.
 
 ```ts
 function greeting(greet:string):string{
@@ -68,8 +68,9 @@ myLogger.after({morningGreet})
 
 ### 6 Type of your variable
 
-For each function, you can put boolean value as second argument in order to display type of your variable.
-
+For each method/function in this package, you can put optional boolean value as second argument in order to display type of your variable in the console.  
+`true` :  displays type  
+`false` : none
 ```ts
 const myLogger = VarChecker.create();
 let num = 3 * 5;
@@ -87,16 +88,13 @@ myLogger.after({num}, true)
 //   }
 ```
 
-
-
-
 ### 7 TimeStamp
-For each function in this package, there is option which displays time in the console. you can type `true` as third argument.
+It displays the timestamp in the console if you put `true` as third argument which is also optional, the default value is `false`.
 
 ```ts
 const myLogger = VarChecker.create();
 let num = 4 * 5
-myLogger.before({num}, true)
+myLogger.before({num}, false, true)
 //output in console:
 //  Fri Feb 09 2024 17:24:07 GMT-0800 (Pacific Standard Time) [BEFORE] {
 //      num: 20,
@@ -104,7 +102,7 @@ myLogger.before({num}, true)
 
 
 num = 6 * 8
-myLogger.after({num}, true)
+myLogger.after({num}, false, true)
 // ouput in console:
 //  Fri Feb 09 2024 17:24:07 GMT-0800 (Pacific Standard Time) [AFTER] {
 //      num: 48,
