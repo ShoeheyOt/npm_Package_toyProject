@@ -66,11 +66,35 @@ myLogger.after({morningGreet})
 //  }
 ```
 
-### 6 TimeStamp
-For each function in this package, there is option which displays time in the console. you can type `true` as second argument.
+### 6 Type of your variable
+
+For each function, you can put boolean value as second argument in order to display type of your variable.
 
 ```ts
-const myLogger = TestLogger.create();
+const myLogger = VarChecker.create();
+let num = 3 * 5;
+myLogger.before({num}, true)
+//output in console:
+//  [BEFORE] number {
+//    num: 15,
+//  }
+
+num = 6 * 8
+myLogger.after({num}, true)
+// output in console: 
+//   [AFTER] number {
+//    num: 48,
+//   }
+```
+
+
+
+
+### 7 TimeStamp
+For each function in this package, there is option which displays time in the console. you can type `true` as third argument.
+
+```ts
+const myLogger = VarChecker.create();
 let num = 4 * 5
 myLogger.before({num}, true)
 //output in console:
